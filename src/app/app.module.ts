@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { fakeBackendProvider, JwtInterceptor } from './_helpers';
+import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor } from './_helpers';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ErrorInterceptor } from './_helpers/error.interceptor';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+
+  ],
   declarations: [
     AppComponent,
     HomeComponent,
@@ -20,18 +26,14 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
+
   providers: [
 
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
-    fakeBackendProvider],
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

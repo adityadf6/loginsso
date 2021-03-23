@@ -44,11 +44,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         // helper functions
 
-        function ok(body? : any) {
+        function ok(body?) {
             return of(new HttpResponse({ status: 200, body }))
         }
 
-        function error(message : any) {
+        function error(message) {
             return throwError({ error: { message } });
         }
     }
