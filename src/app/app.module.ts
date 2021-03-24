@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor } from './_helpers';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AlertComponent } from './_components/alert.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -16,6 +18,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule
 
   ],
   declarations: [
@@ -23,6 +26,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
+    AlertComponent
 
 
   ],
